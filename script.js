@@ -87,6 +87,7 @@ function verificarVitoria(){
         desejaJogarMais();
         if (jogarMais == 'sim'){
             window.location.reload(false);
+            return 0;
         }
         if(jogarMais == 'nao'){
             return 0;
