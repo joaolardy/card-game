@@ -33,19 +33,30 @@ ul{
     height: 146px;
     border-radius: 5px;
     margin: 17px 17px;
-
     cursor: pointer;
-    backface-visibility: hidden;
+
     transition: all .5s;
     transform-style: preserve-3d;
+    transform: rotateY(180deg);
 }
 .frente{
     background-color: #A7E9AF;
     border: 1px solid #99CEA8;
 }
-.verso{
-    background-color: #99CEA8;
+.frente-fixa{
     background-color: #A7E9AF;
+    border: 1px solid #99CEA8;
+}
+
+.verso{
+    background-color: #A7E9AF;
+    border: 1px solid #99CEA8;
+}
+.verso img:nth-child(1){
+    display: none;
+}
+.frente img:nth-child(2){
+    display: none;
 }
 
 .imagem-carta{
