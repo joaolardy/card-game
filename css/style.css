@@ -1,13 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
+*{
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    background-color: #eef9bf;
+}
 .fundo{
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #eef9bf;
-    width: 1110px;
-    height: 629px;
+    
+}
+main{
+    margin: 10px 80px;
+    background-color: fuchsia;
 }
 h1{
     font-family: Roboto, sans-serif;
@@ -61,4 +71,14 @@ ul{
 
 .imagem-carta{
     width: 100px;
+}
+
+@media (max-width: 600px) {
+	ul{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
 }

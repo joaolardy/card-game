@@ -6,6 +6,7 @@ criarVetorCartas();
 imprimirCartas();
 let cartaAnterior;
 let cartaAtual;
+let jogadas = 0;
 
 
 function virarCarta(elemento){
@@ -14,6 +15,7 @@ function virarCarta(elemento){
 }
 
 function verificaCondicao(elemento){
+    jogadas = jogadas + 1;
     if(elemento.classList.contains('frente-fixa') === false){
         if(cartaAnterior == undefined){
             virarCarta(elemento);
@@ -32,14 +34,11 @@ function verificaCondicao(elemento){
 function fixaCartas(){
     cartaAnterior.classList.add('frente-fixa');
     cartaAtual.classList.add('frente-fixa');
-    // cartaAnterior = undefined;
-    // cartaAtual = undefined;
+    verificarVitoria();
 }
 
 function desvirarCartas(cartaAnterior, cartaAtual){
     setTimeout(esperaParaDesvirar, 1000, cartaAnterior, cartaAtual);
-    // cartaAnterior = undefined;
-    // cartaAtual = undefined;
 }
 
 function esperaParaDesvirar(cartaAnterior, cartaAtual){
@@ -58,10 +57,9 @@ function determinarNumeroDeCartas(){
 
 //coloca duas cartas de cada papagaio no vetor que será exportado pro html
 function criarVetorCartas(){
-    for (i = 0; i < numeroCartas; i++){
+    for (i = 0; i < numeroCartas/2; i++){
         vetorCartas.push(vetorGifs[i]);
         vetorCartas.push(vetorGifs[i]);
-        i++;
     }
     vetorCartas.sort(embaralha);
 }
@@ -81,6 +79,8 @@ function imprimirCartas(){
     }
 }
 
-function compararCartas(card1, card2){
-
+function verificarVitoria(){
+    let cartaVirada = document.querySelector('.verso');
+    console.log(cartaVirada);
+    (cartaVirada == null) ? alert(`Parabéns, você venceu com ${jogadas} jogadas!`) : '';
 }
