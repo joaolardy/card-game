@@ -7,7 +7,7 @@ imprimirCartas();
 let cartaAnterior;
 let cartaAtual;
 let jogadas = 0;
-
+let jogarMais;
 
 function virarCarta(elemento){
     elemento.classList.remove('verso');
@@ -34,7 +34,7 @@ function verificaCondicao(elemento){
 function fixaCartas(){
     cartaAnterior.classList.add('frente-fixa');
     cartaAtual.classList.add('frente-fixa');
-    verificarVitoria();
+    setTimeout(verificarVitoria, 1000);
 }
 
 function desvirarCartas(cartaAnterior, cartaAtual){
@@ -82,5 +82,20 @@ function imprimirCartas(){
 function verificarVitoria(){
     let cartaVirada = document.querySelector('.verso');
     console.log(cartaVirada);
-    (cartaVirada == null) ? alert(`Parabéns, você venceu com ${jogadas} jogadas!`) : '';
+    if(cartaVirada == null){
+        alert(`Parabéns, você venceu com ${jogadas} jogadas!`);
+        desejaJogarMais();
+        if (jogarMais == 'sim'){
+            window.location.reload(false);
+        }
+        if(jogarMais == 'nao'){
+            return 0;
+        }
+        desejaJogarMais();
+    }
+
+}
+
+function desejaJogarMais(){
+    jogarMais = prompt('Deseja jogar mais uma vez?');
 }
